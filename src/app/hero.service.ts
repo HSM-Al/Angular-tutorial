@@ -17,7 +17,6 @@ export class HeroService {
               private http: HttpClient) { }
 
   getHeroes(): Observable<Hero[]>{
-    this.messageService.add('HeroService: fetched heroes');
     return this.http.get<Hero[]>(this.heroesUrl)
     .pipe(
       tap(_ => this.log('fetched hereos')),
